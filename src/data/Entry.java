@@ -5,7 +5,7 @@ public class Entry {
 		private String entrypass;
 		private int id;
 		Entry(String ename,String epass,String id)
-		{
-			
+		{	
+			//hello
 		}
 }
