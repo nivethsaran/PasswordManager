@@ -6,6 +6,6 @@ public class Entry {
 		private int id;
 		Entry(String ename,String epass,String id)
 		{	
-			//hello
+			//int n for hello
 		}
 }
