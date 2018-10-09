@@ -7,25 +7,23 @@ public class PasswordManagerApplication {
 
 	public static void main(String[] args) {
 		ArrayList<User> users=new ArrayList<User>();
-		Scanner inp=new Scanner(System.in);
+		Scanner scan=new Scanner(System.in);
 		
 		
-		//System.out.println("");
-		//int ch=in.nextInt();
-		
-			/*switch(ch)
-		}
+		System.out.println("Enter your choice\n1.New User\n2.Login");
+		int ch=Integer.parseInt(scan.nextLine());
+		if(ch==1)
 		{
-		case 1:
-			{
-				break;
-			}
-		default:
+			
+		}
+		else if(ch==2)
 		{
-			break;
+			
 		}
+		else
+		{
+			
 		}
-		*/
 	}
 
 }

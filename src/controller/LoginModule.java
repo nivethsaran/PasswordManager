@@ -1,5 +1,5 @@
-package passwordManagerPackage;
-import java.util.*;
+package controller;
+import java.util.Scanner;
 public class LoginModule {
 	
 	
