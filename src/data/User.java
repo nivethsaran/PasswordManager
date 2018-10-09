@@ -5,19 +5,42 @@ public class User {
 	private String lastname;
 	private String emailid;
 	private String master_password;
-	private ArrayList<String> entries;
 	int noofTries;
-	
-	String getFirstName()
+	public User()
+	{
+		firstname=" ";
+		lastname=" ";
+		emailid="";
+		noofTries=0;
+	}
+	public String getFirstName()
 	{
 		return firstname;
 	}
-	String getLastName()
+	public String getLastName()
 	{
 		return lastname;
 	}
-	String getEmail()
+	public String getEmail()
 	{
 		return emailid;
 	}
+	public void setUserName(String firstname,String lastname)
+	{
+		this.firstname=firstname;
+		this.lastname=lastname;
+	}
+	public void setEmail(String emailID)
+	{
+		this.emailid=emailID;
+	}
+	public void setPassword(String newpassword)
+	{
+		//enter password encryption stuff here
+	}
+	public void resetNoOfTries()
+	{
+		noofTries=0;
+	}
+	
 }

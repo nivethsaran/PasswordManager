@@ -1,5 +1,6 @@
 package controller;
 import java.util.Scanner;
+import data.*;
 public class LoginModule {
 	
 	
@@ -11,6 +12,10 @@ public class LoginModule {
 		System.out.println("Enter Password:");
 		pass=in.nextLine();
 		
+	}
+	void afterLogin(User user)
+	{
+		System.out.println("Welcome "+user.getFirstName()+" "+user.getLastName());
 	}
 	boolean authenticate(String uname,String pass)
 	{
