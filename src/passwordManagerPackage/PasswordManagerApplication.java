@@ -19,7 +19,8 @@ public class PasswordManagerApplication {
 		if(ch==1)
 		{
 			RegistrationModule reg=new RegistrationModule();
-			reg.registrationSetup();
+			String fileout=reg.registrationSetup();
+			md.addFileData(fileout);
 			}
 		else if(ch==2)
 		{

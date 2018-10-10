@@ -9,7 +9,7 @@ public class MainDirectory {
 		dir.mkdir();
 }
 	public void storeUserData()throws IOException {
-		OutputStream store=new FileOutputStream(userdata);
+		OutputStream store=new FileOutputStream(userdata,true);
 	
 	}
 	public String readFileLine()
@@ -27,6 +27,16 @@ public class MainDirectory {
 		{
 			return null;
 		}
+	}
+	public void addFileData(String line) throws IOException
+	{
+		OutputStream addData=new FileOutputStream(userdata,true);
+		BufferedWriter baddData = new BufferedWriter(new OutputStreamWriter(addData));
+		
+		byte buffer[]=line.getBytes();
+		baddData.write(line);
+		baddData.newLine();
+		addData.close();
 	}
 	
 }

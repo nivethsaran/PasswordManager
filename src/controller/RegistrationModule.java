@@ -2,10 +2,12 @@ package controller;
 import java.util.*;
 import java.util.regex.Matcher; 
 import java.util.regex.Pattern;
+
+import crypt.mPassword;
 public class RegistrationModule {
 	
-public  void registrationSetup()
-{//String  
+public String registrationSetup()
+{String email;  
 	char ch='y';
 	Scanner in=new Scanner(System.in);
 	System.out.println("SNAAP Password Manager to save all your passwords Hassle Free\n"
@@ -16,7 +18,7 @@ public  void registrationSetup()
 	String lname=in.nextLine();
 	do {
 	System.out.println("Enter Email Address");
-	String email=in.nextLine();
+	 email=in.nextLine();
 	boolean isEmail=isValidEmail(email);
 	if(isEmail)
 		{
@@ -26,9 +28,22 @@ public  void registrationSetup()
 	{
 	System.out.println("The Email you have entered is not valid. Would you like to try again? y/n");
 	ch=(in.nextLine()).charAt(0);
-	
+	if(ch=='n'||ch=='N')
+		email=null;
 	}
 }while(ch=='y'||ch=='Y');
+	if(email==null)
+	{
+		System.out.println("Registration Process Cancelled");
+		return null;
+	}
+	else
+	{
+		System.out.println("Enter your Password");
+		String password=in.nextLine();
+		mPassword userMasterPassword=new mPassword("password");
+	}
+	return fname+" "+lname+" "+email;
 }
 public  boolean isValidEmail(String email) 
 { 
