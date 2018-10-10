@@ -4,8 +4,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class RegistrationModule {
 	
-void registrationSetup()
+public static void registrationSetup()
 {//String  
+	char ch='y';
 	Scanner in=new Scanner(System.in);
 	System.out.println("SNAAP Password Manager to save all your passwords Hassle Free\n"
 			+ "Please enter details as requested");
@@ -23,11 +24,13 @@ void registrationSetup()
 		}
 	else
 	{
-		
+	System.out.println("The Email you have entered is not valid. Would you like to try again? y/n");
+	ch=(in.nextLine()).charAt(0);
+	
 	}
-}while(true);
+}while(ch=='y'||ch=='Y');
 }
-public boolean isValidEmail(String email) 
+public static boolean isValidEmail(String email) 
 { 
     String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
                         "[a-zA-Z0-9_+&*-]+)*@" + 

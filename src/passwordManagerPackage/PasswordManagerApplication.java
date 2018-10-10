@@ -14,8 +14,8 @@ public class PasswordManagerApplication {
 		int ch=Integer.parseInt(scan.nextLine());
 		if(ch==1)
 		{
-			
-		}
+			RegistrationModule.registrationSetup();
+			}
 		else if(ch==2)
 		{
 			
