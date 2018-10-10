@@ -1,10 +1,13 @@
 package data;
 import java.util.*;
+
+import crypt.mPassword;
+import data.*;
 public class User {
 	private String firstname;
 	private String lastname;
 	private String emailid;
-	private String master_password;
+	private mPassword master_password;
 	int noofTries;
 	public User()
 	{
@@ -12,6 +15,7 @@ public class User {
 		lastname=" ";
 		emailid="";
 		noofTries=0;
+		
 	}
 	public String getFirstName()
 	{

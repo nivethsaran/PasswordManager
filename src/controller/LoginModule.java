@@ -4,13 +4,15 @@ import data.*;
 public class LoginModule {
 	
 	
-	void getInput()
+	void loginSetup()
 	{	Scanner in=new Scanner(System.in);
 		String uname,pass;
 		System.out.println("Enter UserName:");
 		uname=in.nextLine();
 		System.out.println("Enter Password:");
 		pass=in.nextLine();
+		boolean auth=authenticate(uname,pass);
+		
 		
 	}
 	void afterLogin(User user)

@@ -4,7 +4,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 public class RegistrationModule {
 	
-public static void registrationSetup()
+public  void registrationSetup()
 {//String  
 	char ch='y';
 	Scanner in=new Scanner(System.in);
@@ -30,7 +30,7 @@ public static void registrationSetup()
 	}
 }while(ch=='y'||ch=='Y');
 }
-public static boolean isValidEmail(String email) 
+public  boolean isValidEmail(String email) 
 { 
     String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
                         "[a-zA-Z0-9_+&*-]+)*@" + 
