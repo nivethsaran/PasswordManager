@@ -28,33 +28,38 @@ public class UserModule implements modifymodule {
 	public void change(User user,String uname,String pass)	throws IOException {
 		// TODO Auto-generated method stub
 		String fileLineData[];
-		ArrayList<Entry> entries=null;
+		ArrayList<Entry> entries=new ArrayList<Entry>();
 		File dir=new File("E:\\Misc\\OOPS Project\\"+user.getEmail()+".txt");
 		FileInputStream fstream = new FileInputStream(dir);
 		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
-		String fileLine;
+		String fileLine="";
 		while ((fileLine = br.readLine()) != null)   {
 			fileLineData=fileLine.split(" ");
-			System.out.println(fileLineData[0]+" "+fileLineData[1]);
-		
-			entries.add(new Entry(fileLineData[0],new Password(fileLineData[1])));
+			Entry temp=new Entry(fileLineData[0],new Password(fileLineData[1]));
+			entries.add(temp);
 			
 		}
 		br.close();
+		int n=entries.size();
+		System.out.println(n);
 		for(int i=0;i<entries.size();i++)
 		{
-			if(uname.equals(entries.get(i)))
+			if(uname.equals(entries.get(i).getEName()))
 			{
 				entries.set(i, new Entry(uname,new Password(pass)));
 			}
 		}
 		FileWriter addData= new FileWriter(dir);
-		String newLine = System.getProperty("line.separator");
-		for(int i=0;i<entries.size();i++)
-		{	
+		addData.write("");
+		addData=new FileWriter(dir,true);
+		for(int i=0;i<n;i++)
+		{
 			String tuname=entries.get(i).getEName();
 			String tnewpass=entries.get(i).getPassword();
+			System.out.println(tuname+" "+tnewpass);
 			addData.write(tuname+" "+tnewpass);
+			addData.append("\n");
+			addData.close();
 		}
 		
 		
