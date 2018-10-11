@@ -32,7 +32,11 @@ public class LoginModule {
 		ename=in.nextLine();
 		System.out.println("Enter Entry Password");
 		epass=in.nextLine();
+		try {
 				mod.add(user,ename,epass);
+		}	catch(Exception E){
+					System.out.println(E.getStackTrace());
+				}
 		}
 		else if(ch==2)
 		{
