@@ -9,16 +9,20 @@ public class PasswordManagerApplication {
 
 	public static void main(String[] args) throws IOException{
 		ArrayList<User> users=new ArrayList<User>();
+		System.out.println("//Stsrta");
 		String fileLineData[];
 		Scanner scan=new Scanner(System.in);
 		MainDirectory md=new MainDirectory();
 		md.makeDir();
 		md.storeUserData();
 		String fileLine=md.readFileLine();
-		while(fileLine!=null)
+		int i=0;
+		while(i<4)
 		{
 			fileLineData=fileLine.split(" ");
-			users.add(new User(fileLineData[0],fileLineData[1],fileLineData[2],fileLineData[3]));
+			users.add(new User(fileLineData[0],fileLineData[1],fileLineData[2],fileLineData[2]));
+			System.out.println(fileLineData[0]+fileLineData[1]+fileLineData[2]+fileLineData[2]);
+			i++;
 		}
 		System.out.println("Enter your choice\n1.New User\n2.Login");
 		int ch=Integer.parseInt(scan.nextLine());
@@ -40,6 +44,8 @@ public class PasswordManagerApplication {
 		else if(ch==2)
 		{
 			LoginModule login=new LoginModule();
+			login.loginSetup(users);
+			
 			
 		}
 		else

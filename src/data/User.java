@@ -47,6 +47,10 @@ public class User {
 	{
 		this.emailid=emailID;
 	}
+	public String retHashedPass()
+	{
+		return master_password.getEncryptedPassword();
+	}
 	public void setPassword(String newpassword)
 	{
 		//enter password encryption stuff here
