@@ -22,7 +22,7 @@ public class User {
 		this.firstname=firstname;
 		this.lastname=lastname;
 		this.emailid=emailid;
-		this.master_password=new mPassword("epassword");
+		this.master_password=new mPassword(epassword);
 		noofTries=0;
 		
 	}

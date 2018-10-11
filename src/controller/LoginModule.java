@@ -12,7 +12,12 @@ public class LoginModule {
 		uname=in.nextLine();
 		System.out.println("Enter Password:");
 		pass=in.nextLine();
-		boolean auth=authenticate(uname,pass,users);
+		int auth_Token=authenticate(uname,pass,users);
+		if(auth_Token!=-1)
+			afterLogin(users.get(auth_Token));
+		else
+			System.out.println("Wrong details entered");
+		
 		
 		
 	}
@@ -20,20 +25,21 @@ public class LoginModule {
 	{
 		System.out.println("Welcome "+user.getFirstName()+" "+user.getLastName());
 	}
-	boolean authenticate(String uname,String pass,ArrayList<User> users)
-	{System.out.println(users.size());
-		for(int i=0;i<users.size();i++)
+
+	
+	int authenticate(String uname,String pass,ArrayList<User> users)
+	{//System.out.println(users.size());
+		
+	for(int i=0;i<users.size();i++)
 		{
-			if(uname==users.get(i).getEmail())
-			{
-				afterLogin(users.get(i));
+			if(uname.equals(users.get(i).getEmail())&&pass.equals(users.get(i).getHashedPass()))
+			{	
+				return i;
 			}
-			else
-			{
-				System.out.println("Illegal Entry!!!");
-			}
+			
 		}
-		return false;
+		
+		return -1;
 	}
 	boolean isExceedsLimit(int nooftries) {
 		if(nooftries>3)
