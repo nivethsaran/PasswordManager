@@ -17,6 +17,15 @@ public class User {
 		noofTries=0;
 		
 	}
+	public User(String firstname,String lastname,String emailid,String epassword)
+	{
+		this.firstname=firstname;
+		this.lastname=lastname;
+		this.emailid=emailid;
+		this.master_password=new mPassword("epassword");
+		noofTries=0;
+		
+	}
 	public String getFirstName()
 	{
 		return firstname;

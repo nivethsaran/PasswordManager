@@ -8,6 +8,7 @@ public class RegistrationModule {
 	
 public String registrationSetup()
 {String email;  
+mPassword userMasterPassword;
 	char ch='y';
 	Scanner in=new Scanner(System.in);
 	System.out.println("SNAAP Password Manager to save all your passwords Hassle Free\n"
@@ -34,16 +35,17 @@ public String registrationSetup()
 }while(ch=='y'||ch=='Y');
 	if(email==null)
 	{
-		System.out.println("Registration Process Cancelled");
+		//System.out.println("Registration Process Cancelled");
 		return null;
 	}
 	else
 	{
 		System.out.println("Enter your Password");
 		String password=in.nextLine();
-		mPassword userMasterPassword=new mPassword("password");
+		userMasterPassword=new mPassword("password");
 	}
-	return fname+" "+lname+" "+email;
+	
+	return fname+" "+lname+" "+email+" "+userMasterPassword.getEncryptedPassword();
 }
 public  boolean isValidEmail(String email) 
 { 

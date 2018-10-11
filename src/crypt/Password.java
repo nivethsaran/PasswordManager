@@ -17,4 +17,8 @@ public class Password {
 		{
 			return unEnPass;
 		}
+		public String getEncryptedPassword()
+		{
+			return encryptedPass;
+		}
 }

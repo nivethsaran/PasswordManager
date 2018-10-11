@@ -30,12 +30,10 @@ public class MainDirectory {
 	}
 	public void addFileData(String line) throws IOException
 	{
-		OutputStream addData=new FileOutputStream(userdata,true);
-		BufferedWriter baddData = new BufferedWriter(new OutputStreamWriter(addData));
-		
+		FileWriter addData= new FileWriter(userdata,true);
+		String newLine = System.getProperty("line.separator");
 		byte buffer[]=line.getBytes();
-		baddData.write(line);
-		baddData.newLine();
+		addData.write(line+newLine);
 		addData.close();
 	}
 	
