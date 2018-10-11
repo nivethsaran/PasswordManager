@@ -1,11 +1,7 @@
 package crypt;
 import java.util.*;
  class SimpleEncrypt {
-	public static void main(String[] args) {
-			Scanner r=new Scanner(System.in);
-			String a=r.nextLine();
-encryeasy(a);
-}
+
  public static void encryeasy(String s)
 {
 	 

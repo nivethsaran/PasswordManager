@@ -31,11 +31,12 @@ public class MainDirectory {
 	public void addFileData(String line) throws IOException
 	{
 		FileWriter addData= new FileWriter(userdata,true);
-		String newLine = System.getProperty("line.separator");
 		byte buffer[]=line.getBytes();
 		addData.write(line);
 		addData.append('\n');
 		addData.close();
 	}
+
+	
 	
 }

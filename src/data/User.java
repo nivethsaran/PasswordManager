@@ -8,6 +8,7 @@ public class User {
 	private String lastname;
 	private String emailid;
 	public mPassword master_password;
+	
 	int noofTries;
 	
 	public User()

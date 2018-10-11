@@ -25,7 +25,7 @@ public class LoginModule {
 	{	String ename,epass;
 		modifymodule mod=new UserModule();
 		System.out.println("Welcome "+user.getFirstName()+" "+user.getLastName());
-		System.out.println("What service would you like to use?\n1.Create new Password Entry\2.Remove Password Entry\n3.Modify Password Entry\n4.Logout");
+		System.out.println("What service would you like to use?\n1.Create new Password Entry\n2.Modify Password Entry\n3.Remove Password Entry\n4.Logout");
 		int ch=Integer.parseInt(in.nextLine());
 		if(ch==1)
 		{System.out.println("Enter Entry Name");
@@ -39,12 +39,20 @@ public class LoginModule {
 				}
 		}
 		else if(ch==2)
-		{
-			mod.change(user);
+		{System.out.println("Enter Entry Name");
+		ename=in.nextLine();
+		System.out.println("Enter New Password");
+		epass=in.nextLine();
+		try {
+				mod.change(user,ename,epass);
+		}	catch(Exception E){
+					System.out.println(E.getStackTrace());
+				}
+			
 		}
 		else if(ch==3)
 		{
-			mod.remove(user);
+			//mod.add(user,ename,epass);
 		}
 		else
 		{

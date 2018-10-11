@@ -40,6 +40,7 @@ public class PasswordManagerApplication {
 				md.addFileData(fileout);
 				fileLineData=fileout.split(" ");
 				users.add(new User(fileLineData[0],fileLineData[1],fileLineData[2],fileLineData[3]));
+				
 			}
 		}
 		else if(ch==2)
