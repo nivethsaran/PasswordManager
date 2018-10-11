@@ -1,4 +1,4 @@
-
+package crypt;
 import java.util.*;
  class SimpleEncrypt {
 	public static void main(String[] args) {

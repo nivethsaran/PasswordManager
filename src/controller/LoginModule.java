@@ -3,7 +3,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import data.*;
 public class LoginModule {
-	
+	Scanner in=new Scanner(System.in);
 	
 	public void loginSetup(ArrayList<User> users)
 	{	Scanner in=new Scanner(System.in);
@@ -22,8 +22,30 @@ public class LoginModule {
 		
 	}
 	void afterLogin(User user)
-	{
+	{	String ename,epass;
+		modifymodule mod=new UserModule();
 		System.out.println("Welcome "+user.getFirstName()+" "+user.getLastName());
+		System.out.println("What service would you like to use?\n1.Create new Password Entry\2.Remove Password Entry\n3.Modify Password Entry\n4.Logout");
+		int ch=Integer.parseInt(in.nextLine());
+		if(ch==1)
+		{System.out.println("Enter Entry Name");
+		ename=in.nextLine();
+		System.out.println("Enter Entry Password");
+		epass=in.nextLine();
+				mod.add(user,ename,epass);
+		}
+		else if(ch==2)
+		{
+			mod.change(user);
+		}
+		else if(ch==3)
+		{
+			mod.remove(user);
+		}
+		else
+		{
+			System.out.println("You have successfully Logged Out");
+		}
 	}
 
 	
