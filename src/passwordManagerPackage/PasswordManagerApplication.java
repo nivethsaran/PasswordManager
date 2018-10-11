@@ -15,15 +15,16 @@ public class PasswordManagerApplication {
 		MainDirectory md=new MainDirectory();
 		md.makeDir();
 		md.storeUserData();
-		String fileLine=md.readFileLine();
-		int i=0;
-		while(i<4)
-		{
+		File userdata=md.userdata;
+		FileInputStream fstream = new FileInputStream(userdata);
+		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+		String fileLine;
+		while ((fileLine = br.readLine()) != null)   {
 			fileLineData=fileLine.split(" ");
-			users.add(new User(fileLineData[0],fileLineData[1],fileLineData[2],fileLineData[2]));
-			System.out.println(fileLineData[0]+fileLineData[1]+fileLineData[2]+fileLineData[2]);
-			i++;
+			users.add(new User(fileLineData[0],fileLineData[1],fileLineData[2],fileLineData[3]));
+			System.out.println(fileLineData[0]+" "+fileLineData[1]+" "+fileLineData[2]+" "+fileLineData[3]);
 		}
+		br.close();
 		System.out.println("Enter your choice\n1.New User\n2.Login");
 		int ch=Integer.parseInt(scan.nextLine());
 		if(ch==1)

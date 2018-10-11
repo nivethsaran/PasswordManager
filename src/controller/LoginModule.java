@@ -21,10 +21,10 @@ public class LoginModule {
 		System.out.println("Welcome "+user.getFirstName()+" "+user.getLastName());
 	}
 	boolean authenticate(String uname,String pass,ArrayList<User> users)
-	{
+	{System.out.println(users.size());
 		for(int i=0;i<users.size();i++)
 		{
-			if(uname==users.get(i).getEmail()&&pass==users.get(i).retHashedPass())
+			if(uname==users.get(i).getEmail())
 			{
 				afterLogin(users.get(i));
 			}

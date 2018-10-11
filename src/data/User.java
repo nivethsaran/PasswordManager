@@ -7,7 +7,7 @@ public class User {
 	private String firstname;
 	private String lastname;
 	private String emailid;
-	private mPassword master_password;
+	public mPassword master_password;
 	int noofTries;
 	public User()
 	{
@@ -47,10 +47,6 @@ public class User {
 	{
 		this.emailid=emailID;
 	}
-	public String retHashedPass()
-	{
-		return master_password.getEncryptedPassword();
-	}
 	public void setPassword(String newpassword)
 	{
 		//enter password encryption stuff here
@@ -58,6 +54,10 @@ public class User {
 	public void resetNoOfTries()
 	{
 		noofTries=0;
+	}
+	public String getHashedPass() {
+		// TODO Auto-generated method stub
+		return master_password.getEncryptedPassword();
 	}
 	
 }

@@ -42,7 +42,7 @@ mPassword userMasterPassword;
 	{
 		System.out.println("Enter your Password");
 		String password=in.nextLine();
-		userMasterPassword=new mPassword("password");
+		userMasterPassword=new mPassword(password);
 	}
 	
 	return fname+" "+lname+" "+email+" "+userMasterPassword.getEncryptedPassword();
