@@ -70,4 +70,22 @@ public static boolean isValidEmail(String a){
 		}
 		
 	}
+	
+	public static boolean password_strength(String a)
+	{
+		int l=a.length();
+		int csc=0;
+		int cn=0;
+		for(int i=0;i<l;++i)
+		{
+			if(Character.isDigit(a.charAt(i)))
+				cn++;
+			if(!Character.isLetterOrDigit(a.charAt(i)))
+				csc++;
+		}
+		if(l>=10&&csc>=2&&cn>=3)
+			return true;
+		else
+			return false;
+	}
 }
