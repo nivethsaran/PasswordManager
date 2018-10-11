@@ -47,16 +47,27 @@ mPassword userMasterPassword;
 	
 	return fname+" "+lname+" "+email+" "+userMasterPassword.getEncryptedPassword();
 }
-public  boolean isValidEmail(String email) 
-{ 
-    String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+ 
-                        "[a-zA-Z0-9_+&*-]+)*@" + 
-                        "(?:[a-zA-Z0-9-]+\\.)+[a-z" + 
-                        "A-Z]{2,7}$"; 
-                          
-    Pattern pat = Pattern.compile(emailRegex); 
-    if (email == null) 
-        return false; 
-    return pat.matcher(email).matches(); 
-} 
+public static boolean validity(String a){
+		try {
+		String p1=null,p2=null,p3=null;
+		String temp;
+		String[] part1 = a.split("@");
+		p1 = part1[0];
+		temp = part1[1];
+		String[] part2 = temp.split("\\.",2);
+		p2 = part2[0];
+		p3 = part2[1];
+		
+		if(p1!=null&&p2!=null&&p3!=null) {
+			return true;
+		}
+		else
+			return false;
+	}
+		catch(Exception E)
+		{
+			return false;
+		}
+		
+	}
 }
