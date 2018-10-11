@@ -1,14 +1,15 @@
 package data;
 import java.util.*;
-
 import crypt.mPassword;
 import data.*;
+import java.io.*;
 public class User {
 	private String firstname;
 	private String lastname;
 	private String emailid;
 	public mPassword master_password;
 	int noofTries;
+	
 	public User()
 	{
 		firstname=" ";
@@ -17,12 +18,16 @@ public class User {
 		noofTries=0;
 		
 	}
-	public User(String firstname,String lastname,String emailid,String epassword)
+	public User(String firstname,String lastname,String emailid,String epassword)throws IOException
 	{
 		this.firstname=firstname;
 		this.lastname=lastname;
 		this.emailid=emailid;
 		this.master_password=new mPassword(epassword);
+		File dir=new File("E:\\Misc\\OOPS Project\\"+emailid+".txt");
+		//File dir1=new File("E:\\Misc\\OOPS Project\\"+emailid);
+		//dir1.delete();
+		OutputStream store=new FileOutputStream(dir,true);
 		noofTries=0;
 		
 	}
