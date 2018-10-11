@@ -47,7 +47,7 @@ mPassword userMasterPassword;
 	
 	return fname+" "+lname+" "+email+" "+userMasterPassword.getEncryptedPassword();
 }
-public static boolean validity(String a){
+public static boolean isValidEmail(String a){
 		try {
 		String p1=null,p2=null,p3=null;
 		String temp;
