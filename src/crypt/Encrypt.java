@@ -27,7 +27,14 @@ public class Encrypt {
 		}
 		for(int j=0;j<ch.length;++j)
 		{
-	ch[j]=alphaMirror(ch[j]);
+			if(Character.isAlphabetic(ch[j]))
+
+	{ch[j]=alphaMirror(ch[j]);}
+		if(!Character.isDigit(ch[j])&&!Character.isAlphabetic(ch[j]))
+		{
+			continue;
+		}
+	
 		}
 		String b=new String(ch);
 		return b;
