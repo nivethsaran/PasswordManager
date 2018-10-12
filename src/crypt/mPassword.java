@@ -6,6 +6,10 @@ public class mPassword extends Password {
 		super(password);
 		
 	}
+	public String getEncryptedPassword()
+	{
+		return encryptedPass;
+	}
 	
 
 }

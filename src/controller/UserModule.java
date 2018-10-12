@@ -7,14 +7,15 @@ import files.MainDirectory;
 import java.io.*;
 import java.util.ArrayList;
 
+import crypt.Encrypt;
 import crypt.Password;
 public class UserModule implements modifymodule {
 
 	@Override
 	public void add(User user,String uname,String pass)	throws IOException {
 		// TODO Auto-generated method stub
-		
-		File dir=new File("E:\\Misc\\OOPS Project\\"+user.getEmail()+".txt");
+		String emailFileEcrypted=Encrypt.encryeasy(user.getEmail());
+		File dir=new File("E:\\Misc\\OOPS Project\\"+emailFileEcrypted+".txt");
 		FileWriter addData= new FileWriter(dir,true);
 		String newLine = System.getProperty("line.separator");
 		addData.write(uname+" "+pass);
@@ -29,7 +30,8 @@ public class UserModule implements modifymodule {
 		// TODO Auto-generated method stub
 		String fileLineData[];
 		ArrayList<Entry> entries=new ArrayList<Entry>();
-		File dir=new File("E:\\Misc\\OOPS Project\\"+user.getEmail()+".txt");
+		String emailFileEcrypted=Encrypt.encryeasy(user.getEmail());
+		File dir=new File("E:\\Misc\\OOPS Project\\"+emailFileEcrypted+".txt");
 		FileInputStream fstream = new FileInputStream(dir);
 		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 		String fileLine="";
@@ -78,7 +80,8 @@ public class UserModule implements modifymodule {
 		
 		String fileLineData[];
 		ArrayList<Entry> entries=new ArrayList<Entry>();
-		File dir=new File("E:\\Misc\\OOPS Project\\"+user.getEmail()+".txt");
+		String emailFileEcrypted=Encrypt.encryeasy(user.getEmail());
+		File dir=new File("E:\\Misc\\OOPS Project\\"+emailFileEcrypted+".txt");
 		FileInputStream fstream = new FileInputStream(dir);
 		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 		String fileLine="";
@@ -125,7 +128,8 @@ public class UserModule implements modifymodule {
 	public void listEntries(User user) throws IOException {
 		// TODO Auto-generated method stub
 		String fileLineData[];
-		File dir=new File("E:\\Misc\\OOPS Project\\"+user.getEmail()+".txt");
+		String emailFileEcrypted=Encrypt.encryeasy(user.getEmail());
+		File dir=new File("E:\\Misc\\OOPS Project\\"+emailFileEcrypted+".txt");
 		FileInputStream fstream = new FileInputStream(dir);
 		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 		String fileLine="";
@@ -142,7 +146,8 @@ public class UserModule implements modifymodule {
 		// TODO Auto-generated method stub
 		String fileLineData[];
 		ArrayList<Entry> entries=new ArrayList<Entry>();
-		File dir=new File("E:\\Misc\\OOPS Project\\"+user.getEmail()+".txt");
+		String emailFileEcrypted=Encrypt.encryeasy(user.getEmail());
+		File dir=new File("E:\\Misc\\OOPS Project\\"+emailFileEcrypted+".txt");
 		FileInputStream fstream = new FileInputStream(dir);
 		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
 		String fileLine="";

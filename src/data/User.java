@@ -1,5 +1,7 @@
 package data;
 import java.util.*;
+
+import crypt.Encrypt;
 import crypt.mPassword;
 import data.*;
 import java.io.*;
@@ -25,7 +27,8 @@ public class User {
 		this.lastname=lastname;
 		this.emailid=emailid;
 		this.master_password=new mPassword(epassword);
-		File dir=new File("E:\\Misc\\OOPS Project\\"+emailid+".txt");
+		String emailFileEcrypted=Encrypt.encryeasy(emailid);
+		File dir=new File("E:\\Misc\\OOPS Project\\"+emailFileEcrypted+".txt");
 		//File dir1=new File("E:\\Misc\\OOPS Project\\"+emailid);
 		//dir1.delete();
 		OutputStream store=new FileOutputStream(dir,true);

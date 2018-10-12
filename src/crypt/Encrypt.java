@@ -1,8 +1,8 @@
 package crypt;
 import java.util.*;
- class SimpleEncrypt {
+public class Encrypt {
 
- public static void encryeasy(String s)
+ public static String encryeasy(String s)
 {
 	 
 		int n;
@@ -25,11 +25,11 @@ import java.util.*;
 	ch[j]=alphaMirror(ch[j]);
 		}
 		String b=new String(ch);
-		System.out.println(b);
+		return b;
 	}
 
 
-static char alphaMirror(char c) {
+private static char alphaMirror(char c) {
  int maxAdvance = 25;
 
  int diff = c - ((c > 'Z') ? 'a' : 'A');
