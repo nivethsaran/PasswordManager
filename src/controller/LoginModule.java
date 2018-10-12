@@ -1,4 +1,5 @@
 package controller;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 import data.*;
@@ -25,7 +26,7 @@ public class LoginModule {
 	{	String ename,epass;
 		modifymodule mod=new UserModule();
 		System.out.println("Welcome "+user.getFirstName()+" "+user.getLastName());
-		System.out.println("What service would you like to use?\n1.Create new Password Entry\n2.Modify Password Entry\n3.Remove Password Entry\n4.Logout");
+		System.out.println("What service would you like to use?\n1.Create new Password Entry\n2.Modify Password Entry\n3.Remove Password Entry\n4.List All Entries\n5.Get Password\n6.Logout");
 		int ch=Integer.parseInt(in.nextLine());
 		if(ch==1)
 		{System.out.println("Enter Entry Name");
@@ -52,7 +53,35 @@ public class LoginModule {
 		}
 		else if(ch==3)
 		{
-			//mod.add(user,ename,epass);
+			System.out.println("Enter Entry Name to Remove");
+			ename=in.nextLine();
+		
+			try {
+					mod.remove(user,ename);
+			}	catch(Exception E){
+						System.out.println(E.getStackTrace());
+					}
+				
+		}
+		else if(ch==4)
+		{
+			try {
+				mod.listEntries(user);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		else if(ch==5)
+		{
+			System.out.println("Enter Entry Name to GET Password");
+			ename=in.nextLine();
+			try {
+				mod.findEntry(user,ename);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		else
 		{

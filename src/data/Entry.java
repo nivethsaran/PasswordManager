@@ -19,4 +19,8 @@ public class Entry {
 		{
 			return entrypass.getEncryptedPassword();
 		}
+		public void setPassword(String newPass)
+		{
+			entrypass=new Password(newPass);
+		}
 }
