@@ -18,7 +18,9 @@ public class UserModule implements modifymodule {
 		File dir=new File("E:\\Misc\\OOPS Project\\"+emailFileEcrypted+".txt");
 		FileWriter addData= new FileWriter(dir,true);
 		String newLine = System.getProperty("line.separator");
-		addData.write(uname+" "+pass);
+		Password encrypass=new Password(pass);
+		String encryPassString=encrypass.getEncryptedPassword();
+		addData.write(uname+" "+encryPassString);
 		//user.entries.add(new Entry(uname,new Password(pass)));
 		addData.append("\n");
 		addData.close();
@@ -49,7 +51,9 @@ public class UserModule implements modifymodule {
 		{
 			if(uname.equals(entries.get(i).getEName()))
 			{	flag=true;
-				entries.get(i).setPassword(pass);
+			Password encrypass=new Password(pass);
+			String encryPassString=encrypass.getEncryptedPassword();
+				entries.get(i).setPassword(encryPassString);
 				break;
 			}
 		}
@@ -135,7 +139,7 @@ public class UserModule implements modifymodule {
 		String fileLine="";
 		while ((fileLine = br.readLine()) != null)   {
 			fileLineData=fileLine.split(" ");
-			System.out.println("Entry Name: "+fileLineData[0]+"--> Password:"+fileLineData[1]);
+			System.out.println("Entry Name: "+fileLineData[0]+"--> Password:"+Encrypt.encryeasy(fileLineData[1]));
 			
 			
 		}

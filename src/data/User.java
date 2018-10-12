@@ -9,7 +9,7 @@ public class User {
 	private String firstname;
 	private String lastname;
 	private String emailid;
-	public mPassword master_password;
+	public String master_password;
 	
 	int noofTries;
 	
@@ -26,7 +26,7 @@ public class User {
 		this.firstname=firstname;
 		this.lastname=lastname;
 		this.emailid=emailid;
-		this.master_password=new mPassword(epassword);
+		this.master_password=epassword;
 		String emailFileEcrypted=Encrypt.encryeasy(emailid);
 		File dir=new File("E:\\Misc\\OOPS Project\\"+emailFileEcrypted+".txt");
 		//File dir1=new File("E:\\Misc\\OOPS Project\\"+emailid);
@@ -66,7 +66,7 @@ public class User {
 	}
 	public String getHashedPass() {
 		// TODO Auto-generated method stub
-		return master_password.getEncryptedPassword();
+		return master_password;
 	}
 	
 }

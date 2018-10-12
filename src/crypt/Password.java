@@ -8,14 +8,9 @@ public class Password {
 				this.encryptedPass=encryptPassword(password);
 		}
 		
-		void changePassword(String newPassword)
-		{
-			encryptedPass=newPassword;
-			//hello
-		}
 		public String encryptPassword(String unEnPass)
 		{
-			return unEnPass;
+			return Encrypt.encryeasy(unEnPass);
 		}
 		public String getEncryptedPassword()
 		{

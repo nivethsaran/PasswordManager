@@ -45,7 +45,7 @@ mPassword userMasterPassword;
 		userMasterPassword=new mPassword(password);
 	}
 	
-	return fname+" "+lname+" "+email+" "+userMasterPassword.getEncryptedPassword();
+	return fname+" "+lname+" "+email+" "+userMasterPassword.getEncryptedPassword(userMasterPassword.getNormalPass());
 }
 public static boolean isValidEmail(String a){
 		try {

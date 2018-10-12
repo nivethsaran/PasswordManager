@@ -2,6 +2,8 @@ package controller;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import crypt.Encrypt;
 import data.*;
 public class LoginModule {
 	Scanner in=new Scanner(System.in);
@@ -95,7 +97,7 @@ public class LoginModule {
 		
 	for(int i=0;i<users.size();i++)
 		{
-			if(uname.equals(users.get(i).getEmail())&&pass.equals(users.get(i).getHashedPass()))
+			if(uname.equals(users.get(i).getEmail())&&Encrypt.aesencrypt(pass).equals(users.get(i).getHashedPass()))
 			{	
 				return i;
 			}
