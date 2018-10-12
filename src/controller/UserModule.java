@@ -45,7 +45,7 @@ public class UserModule implements modifymodule {
 		}
 		br.close();
 		int n=entries.size();
-		System.out.println(n);
+		//System.out.println(n);
 		boolean flag=false;
 		for(int i=0;i<entries.size();i++)
 		{
@@ -67,8 +67,8 @@ public class UserModule implements modifymodule {
 		for(int i=0;i<n;i++)
 		{	addData=new FileWriter(dir,true);
 			String tuname=entries.get(i).getEName();
-			String tnewpass=entries.get(i).getPassword();
-			System.out.println(tuname+" "+tnewpass);
+			String tnewpass=Encrypt.encryeasy(entries.get(i).getPassword());
+			//System.out.println(tuname+" "+tnewpass);
 			addData.write(tuname+" "+tnewpass);
 			addData.append('\n');
 			addData.close();
@@ -97,7 +97,7 @@ public class UserModule implements modifymodule {
 		}
 		br.close();
 		int n=entries.size();
-		System.out.println(n);
+		//System.out.println(n);
 		boolean flag=false;
 		for(int i=0;i<entries.size();i++)
 		{
@@ -118,8 +118,8 @@ public class UserModule implements modifymodule {
 		for(int i=0;i<n-1;i++)
 		{	addData=new FileWriter(dir,true);
 			String tuname=entries.get(i).getEName();
-			String tnewpass=entries.get(i).getPassword();
-			System.out.println(tuname+" "+tnewpass);
+			String tnewpass=Encrypt.encryeasy(entries.get(i).getPassword());
+			//System.out.println(tuname+" "+tnewpass);
 			addData.write(tuname+" "+tnewpass);
 			addData.append('\n');
 			addData.close();
@@ -163,13 +163,51 @@ public class UserModule implements modifymodule {
 		}
 		br.close();
 		int n=entries.size();
-		System.out.println(n);
+		//System.out.println(n);
 		boolean flag=false;
 		for(int i=0;i<entries.size();i++)
 		{
 			if(uname.equals(entries.get(i).getEName()))
 			{	flag=true;
 				System.out.println("Entryname:"+entries.get(i).getEName()+"-->Password: "+entries.get(i).getPassword());
+				break;
+			}
+		}
+		if(!flag) {
+			System.out.println("No such entry exists");
+			return;
+		}
+	}
+
+	@Override
+	public void findPassStrength(User user, String uname) throws IOException {
+		// TODO Auto-generated method stub
+		String fileLineData[];
+		ArrayList<Entry> entries=new ArrayList<Entry>();
+		String emailFileEcrypted=Encrypt.encryeasy(user.getEmail());
+		File dir=new File("E:\\Misc\\OOPS Project\\"+emailFileEcrypted+".txt");
+		FileInputStream fstream = new FileInputStream(dir);
+		BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+		String fileLine="";
+		while ((fileLine = br.readLine()) != null)   {
+			fileLineData=fileLine.split(" ");
+			Entry temp=new Entry(fileLineData[0],new Password(fileLineData[1]));
+			entries.add(temp);
+			
+		}
+		br.close();
+		int n=entries.size();
+		//System.out.println(n);
+		boolean flag=false;
+		for(int i=0;i<entries.size();i++)
+		{
+			if(uname.equals(entries.get(i).getEName()))
+			{	flag=true;
+			boolean strength=RegistrationModule.password_strength(entries.get(i).getPassword());
+			if(strength)
+				System.out.println("Entryname:"+entries.get(i).getEName()+"-->Password Strength: Strong");
+			else
+				System.out.println("Entryname:"+entries.get(i).getEName()+"-->Password Strength: Weak");
 				break;
 			}
 		}

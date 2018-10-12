@@ -8,6 +8,7 @@ import controller.*;
 public class PasswordManagerApplication {
 
 	public static void main(String[] args) throws IOException{
+		System.out.println("||||||PASSWORD MANAGER|||||||");
 		ArrayList<User> users=new ArrayList<User>();
 		String fileLineData[];
 		char ch2;
@@ -22,7 +23,7 @@ public class PasswordManagerApplication {
 		while ((fileLine = br.readLine()) != null)   {
 			fileLineData=fileLine.split(" ");
 			users.add(new User(fileLineData[0],fileLineData[1],fileLineData[2],fileLineData[3]));
-			System.out.println(fileLineData[0]+" "+fileLineData[1]+" "+fileLineData[2]+" "+fileLineData[3]);
+			//System.out.println(fileLineData[0]+" "+fileLineData[1]+" "+fileLineData[2]+" "+fileLineData[3]);
 		}
 		br.close();
 		do {

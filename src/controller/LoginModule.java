@@ -28,7 +28,9 @@ public class LoginModule {
 	{	String ename,epass;
 		modifymodule mod=new UserModule();
 		System.out.println("Welcome "+user.getFirstName()+" "+user.getLastName());
-		System.out.println("What service would you like to use?\n1.Create new Password Entry\n2.Modify Password Entry\n3.Remove Password Entry\n4.List All Entries\n5.Get Password\n6.Logout");
+		char ch2;
+		do {
+		System.out.println("What service would you like to use?\n1.Create new Password Entry\n2.Modify Password Entry\n3.Remove Password Entry\n4.List All Entries\n5.Get Password\n6.Get Password Strength\n7.Logout");
 		int ch=Integer.parseInt(in.nextLine());
 		if(ch==1)
 		{System.out.println("Enter Entry Name");
@@ -85,11 +87,27 @@ public class LoginModule {
 				e.printStackTrace();
 			}
 		}
+		else if(ch==6)
+		{
+			System.out.println("Enter Entry Name to GET Password Strength");
+			ename=in.nextLine();
+			try {
+				mod.findPassStrength(user, ename);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		else
 		{
-			System.out.println("You have successfully Logged Out");
+			return;
 		}
-	}
+		System.out.println("Do you want to Logout y/n");
+		ch2=(in.nextLine()).charAt(0);
+		
+		}while(ch2=='n'||ch2=='N');
+		}
+		
 
 	
 	int authenticate(String uname,String pass,ArrayList<User> users)

@@ -10,4 +10,5 @@ public interface modifymodule {
 		void change(User user,String uname,String epass) throws IOException;
 		void listEntries(User user) throws IOException;
 		void findEntry(User user,String uname)throws IOException;
+		void findPassStrength(User user,String uname)throws IOException;
 }
