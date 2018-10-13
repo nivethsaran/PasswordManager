@@ -63,7 +63,7 @@ public static String aesencrypt(String value) {
 
         cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv);
 
- 
+
 
         byte[] encrypted = cipher.doFinal(value.getBytes());
 

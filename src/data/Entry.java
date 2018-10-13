@@ -1,5 +1,4 @@
 package data;
-
 import crypt.Password;
 
 public class Entry {

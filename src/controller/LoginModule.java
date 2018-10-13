@@ -24,7 +24,7 @@ public class LoginModule {
 		
 		
 	}
-	void afterLogin(User user)
+	public void afterLogin(User user)
 	{	String ename,epass;
 		modifymodule mod=new UserModule();
 		System.out.println("Welcome "+user.getFirstName()+" "+user.getLastName());
@@ -124,9 +124,5 @@ public class LoginModule {
 		
 		return -1;
 	}
-	boolean isExceedsLimit(int nooftries) {
-		if(nooftries>3)
-			return true;
-		return false;
-	}
+
 }

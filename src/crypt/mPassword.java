@@ -1,7 +1,7 @@
 package crypt;
 
 public class mPassword extends Password {
-private String mpassword;
+protected String mpassword;
 	public mPassword(String password) {
 		super(password);
 		mpassword=password;
